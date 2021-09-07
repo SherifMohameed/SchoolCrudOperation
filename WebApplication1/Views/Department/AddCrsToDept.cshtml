@@ -1,0 +1,22 @@
+﻿@model List<Course>
+@{
+    ViewBag.Title = "AddCrsToDept";
+}
+
+@using (Html.BeginForm())
+{
+    foreach (var item in Model)
+    {
+        
+        <div class="form-group form-check">
+            <input type="checkbox" name="course" value="@item.crs_id">
+            <label class="form-check-label">@item.crs_name</label>
+        </div>
+    }
+
+    <input type="submit" value="Add" class="btn btn-outline-success"  />
+
+}
+
+
+

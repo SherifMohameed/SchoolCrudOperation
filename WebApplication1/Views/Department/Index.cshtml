@@ -1,0 +1,52 @@
+﻿@model IEnumerable<WebApplication1.Models.Department>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.dept_name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.dept_name)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.dept_id }, new { @class = "btn btn-warning" }) |
+        @Html.ActionLink("Details", "Details", new { id = item.dept_id }, new { @class = "btn btn-info" }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.dept_id }, new { @class = "btn btn-danger" })
+    </td>
+
+    <td>
+        @Html.ActionLink("Add Coursers", "AddCrsToDept", new { id = item.dept_id }, new { @class = "btn btn-success" })
+
+    </td>
+    <td>
+        @Html.ActionLink("Remove Coursers", "RemCrsToDept", new { id = item.dept_id }, new { @class = "btn btn-danger" })
+
+    </td>
+    <td>
+        @Html.ActionLink("Show Coursers", "ShowCrsInDept", new { id = item.dept_id }, new { @class = "btn btn-info" })
+
+    </td>
+</tr>
+     }
+
+</table>
+
+<div>
+    @Html.ActionLink("Student", "Student", null, new { @class = " btn btn-outline-dark ", href = "/Student/Index" })
+    @Html.ActionLink("Course", "Course", null, new { @class = " btn btn-outline-primary ", href = "/Course/Index" })
+
+</div>
